@@ -26,10 +26,10 @@ O(1) operation in most cases.
 export const fromArray = arr => xs => xs.push(...arr);
 export const toArray = ls => { const arr = []; ls(arr); return arr; };
 
-export const empty = xs => xs;
+export const empty = () => {};
 export const single = x => xs => xs.push(x);
 export const concat = (ls1, ls2) => xs => { ls1(xs); ls2(xs) };
 // Push x to _end_ of list ls (called "append" in Eric's post)
 export const push = (ls, x) => xs => { ls(xs); xs.push(x) };
 // Add x to the _beginning_ of the list ls (called "push" in Eric's post)
-export const unshift = (ls, x) => xs => { xs.push(x), ls(xs) };
+export const unshift = (ls, x) => xs => { xs.push(x); ls(xs) };
